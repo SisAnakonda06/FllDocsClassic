@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>selfTest.py - Submerged program</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "selfTest.py";
+        var mkdocs_page_input_path = "selfTest.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Návod a přehled</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../main/">main.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../menu/">menu.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../movement/">movement.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../parameters/">parameters.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rideSelect/">RideSelect.py</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">selfTest.py</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#prehled-funkci">Přehled funkcí</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#start">Start()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testmotors">TestMotors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sensors">Sensors</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#lights">Lights</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#colors">Colors</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gyro">Gyro</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pouizte-parametry">Pouižté parametry</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sensors/">sensors.py</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Submerged program</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">selfTest.py</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
+        <a href="../rideSelect/" class="btn btn-neutral float-left" title="RideSelect.py"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sensors/" class="btn btn-neutral float-right" title="sensors.py">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+    </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="selftestpy">selfTest.py</h1>
+<p>Tento soubro slouží pro testování robota, jeho motorů, senzorů a speciálně gyroskpu. To co má testovat lze vše nastavit v parameters.py</p>
+<h2 id="prehled-funkci">Přehled funkcí</h2>
+<h3 id="start">Start()</h3>
+<p><code>Start()</code><br>
+Funkce pro spouštění jednotlivých testů na základě nastaení v parameters.py.</p>
+<p><strong>Parametry</strong> 
+Žádné<br></p>
+<p><br>
+<br></p>
+<h3 id="testmotors">TestMotors</h3>
+<p><code>TestMotors(graphics: bool)</code><br>
+Funkce pro testování motorů. Nejdříve se ukáže animace testování motorů, vyčistí sed displej a spustí se smyčka která zkusí každy motor který jse zpasaný v parameters.py. Otočí motorem a zároveň ukáže animace, po dokončení pohybu se motor vypne.</p>
+<p><strong>Průběh testování</strong>
+Funkce jako první ukáže animaci, která oznamuje, že se budou testovat motory. Spustí se první motor a zároveň se spustí animace rychlosti. Každý motor má svůj sloupeček. Krajní (0. a 4.) slouží pro motory na pohyb (base) prostřední (2. a 3.) slouží pro motory na nástavce.</p>
+<p><strong>Parametry</strong><br>
+- graphics - Jestli se má v průběh testování naznačovat grafickým znázorněním.<br></p>
+<p><br>
+<br></p>
+<h3 id="sensors">Sensors</h3>
+<p><code>Sensors()</code><br>
+Funkce která slouží pro testování senzorů (zatím jenom barevných). Funkce se skládá ze dvou daších funkcí. <br></p>
+<h4 id="lights">Lights</h4>
+<p><code>Lights()</code><br>
+Pdfunkce funkce <code>Sensors()</code> pro testování světel v barevných senzorech. Nejdříve se psustí smyš'čka která vyzkouší všechny barevné senzory. Každý se vybere a v něm se vybere jaké ze 3 světel se má rozsvítit a jak moc.<br></p>
+<p><strong>Průběh testování</strong><br>
+Jako první se objeví šipka která ukazuje směrem který barevný senzor s ebude zkoušet. U každého senzoru se rozsvítí každé ze tří světel s postupným jasem které se zvyšuje po 10 od 0 po 100.</p>
+<p><br></p>
+<h4 id="colors">Colors</h4>
+<p><code>Colors()</code><br>
+Podfunkce funkce <code>Sensors()</code> pro testování čtení barev pomocí barevných senzorů. Nejdříve se spustí smyčka která vyzkouší všechny baarevné senzory. Po tom co jeden vybere, čeká než uvidí požadovanou barvu, mezitím co čeká ukazuje animaci a bliká prostřední tlačítko požadovanou barvou. Pokud ji uvidí pípne a přejde na další barvu/senzor.<br></p>
+<p><strong>Průběh testování</strong><br>
+Displej dvakrát zabliká a potom žačne blikat prostřední tlačítko barvou kterou barevný senzor potřebuji videět. Každý senzor potřebuje vidět červenou, modrou a zelenou. Potom co barvu senzor uvidí pípne a buď začne blkat další barvou kterou potřebuje vidět nebo se horní senzor zhase as posdní se rozsvítí.<br></p>
+<p><br>
+<br></p>
+<h3 id="gyro">Gyro</h3>
+<p><code>Gyro()</code><br>
+Funkce pro testování gyroskopu pomocí zatáčení. Jako první funkce čeká než se robot uklidí/položí se na stůl, tím se zajití že se nebude hýbat a potom se okamžitě nastaví gyroskop pro co nejpřesnější zatáčení. Potom co se to nastaví robot se otočí na 360 a zpět na 0, to setejné na ruhou stranu, -360 a 0. Po každém otočení na 0, musí uživtel odsouhlasit že otočení proběhlo v pořádku.<br></p>
+<p><strong>Průběh testování</strong><br>
+Robot čkaá než bude pevně stát, vyresetuje si gyroskop a otčí se na 360 a zpět na 0, potom robot bude požadovat odsoouhlasení že otočení proběho vpořádku a přesně, to stejné na druhou stranu. Na -360 a zpět na 0 a odsouhlasení.</p>
+<h2 id="pouizte-parametry">Pouižté parametry</h2>
+<p>Použité paramtery jsou napsané ve formátu.<br>
+<code>NÁZEV_PROMĚNÉ_V_SOUBORU = parameters.NÁZEV_PROMĚNÉ_V_PARAMETERS</code><br></p>
+<p><br>
+Pořadí testování motorů<br>
+<code>MOTOR_ORDER_TEST = parameters.MOTOR_ORDER_TEST</code><br></p>
+<p><br>
+Nastavení sloupce pro zobrazení průběhu testování jednotlivých motorů<br>
+<code>MOTOR_GRAPHICS_DISPLAY_COLUMN = parameters.MOTOR_GRAPHICS_DISPLAY_COLUMN</code><br></p>
+<p><br>
+Získávání protů pro barevné senzory<br>
+<code>py
+COLOR_SENSOR_UP_PORT = parameters.COLOR_SENSOR_UP_PORT # pro horní senzor
+COLOR_SENSOR_DOWN_PORT = parameters.COLOR_SENSOR_DOWN_PORT # pro spodní senzor</code><br></p>
+<p><br>
+Barvy které se mají otestovat u barevných senzorů<br>
+<code>TESTING_COLORS = parameters.TESTING_COLORS</code><br></p>
+<p><br>
+Jaké snzory se maji testovat<br>
+<code>TESTING_SENSORS = parameters.TESTING_SENSORS</code><br></p>
+<p><br>
+Zda se mají testotvat motory<br>
+<code>MOTOR_TESTING = parameters.MOTOR_TESTING</code><br></p>
+<p><br>
+Zda se mají testovat barevné senzory<br>
+<code>COLOR_TESTING = parameters.TESTING_COLORS</code><br></p>
+<p><br>
+Zda se má testovat gyroskop<br>
+<code>GYRO_TESTING = parameters.GYRO_TESTING</code><br></p>
+<p><br>
+Cekaní nez nez se program dostane z menu do tesotvání motorů<br>
+<code>ST_WAIT_MOTOR_TEST = parameters.ST_WAIT_MOTOR_TEST</code><br></p>
+<p><br>
+Čekání vyčištění displeje<br>
+<code>CLEAR_DISPLAY = parameters.DISPLY_CLEAR_DISPLEY</code><br></p>
+<p><br>
+Rychlost animace<br>
+<code>FAST_ANIMATION = parameters.FAST_ANIMATIONS</code><br></p>
+<p><br>
+Normální rychlost animace<br>
+<code>NORMAL_ANIMATIONS = parameters.NORMAL_ANIMATIONS</code><br></p>
+<p><br>
+Rychlost hodně pomalé animace<br>
+<code>VERY_SLOW_ANIMATION = parameters.VERY_SLOW_ANIMATION</code></p>
+<p><br>
+Základní hlasitost<br>
+<code>DEAFULT_VOLUME = parameters.DEAFULT_VOLUME</code><br></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../rideSelect/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../sensors/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

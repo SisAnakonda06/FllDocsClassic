@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Submerged program</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "N\u00e1vod a p\u0159ehled";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".">
+          <img src="logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Návod a přehled</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#prehled-souboru">Přehled souborů</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#navod">Návod</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#moznost-r-vyber-jizd">Možnost R - Výběr jízd</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vyber-jizd">Výběr jízd</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#moznost-t-testovani-robota">Možnost T - Testování robota</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#testovani-motoru">Testování motorů</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testovani-senzoru">Testování senzorů</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#testovani-svetel-v-barevncyh-senzorech">Testování světel v barevncýh senzorech</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#testovani-cteni-barev">Testování čtení barev</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testovani-gyroskopu">Testování gyroskopu</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#moznost-i-automaticka-riprava-initalize">Možnost I - Automatická říprava (initalize)</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="main/">main.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="menu/">menu.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="movement/">movement.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="parameters/">parameters.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="rideSelect/">RideSelect.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="selfTest/">selfTest.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="sensors/">sensors.py</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Submerged program</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Návod a přehled</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
+        <a href="main/" class="btn btn-neutral float-right" title="main.py">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+    </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="navod-a-prehled">Návod a přehled</h1>
+<h2 id="prehled-souboru">Přehled souborů</h2>
+<p><a href="main/">main.py</a><br>
+<a href="movement/">movement.py</a><br>
+<a href="sensors/">sensors.py</a><br>
+<a href="menu/">menu.py</a><br>
+<a href="./rideSelect.py">rideSelect.py</a><br></p>
+<h2 id="navod">Návod</h2>
+<p>Robot se ovládá pomocí jeho menu. V menu jsou možnosti <code>R</code>, <code>T</code> <code>I</code>. Pro phybování v menu souží šipky a pro potvrzení slouží prostřední tlačítko. Prostřední talčítko svítí podle stavu baterie<br>
+Zelená - Nabito<br>
+Oranžová - Skoro nabito</p>
+<h2 id="moznost-r-vyber-jizd">Možnost <code>R</code> - Výběr jízd</h2>
+<p>Možnost <code>R</code> slouží pro spuštění výběru jízd.<br></p>
+<h3 id="vyber-jizd">Výběr jízd</h3>
+<p>Pokud po výběru <code>R</code> v hlavním menu se objeví kolečko přes celý displej to znamená že program využívá pro výběr jízd barevný senzor, potom stačí na sadit nástavec a pokud barava která se objeví na prostředním tlačítku souhlasí s barvou nástavcu zmáčknutím kterkoliv tlačítka, kromě bluethoot (slouží pro vypnutí programu) se spustí danná jízda. <br>
+Pokud se objeví písmeno, to znamená že robot nevyužívá barevný senzor pro výběr jízd, ale využívá menu. V menu je ppotřeba podle písmena které se obejví na displeji a baryv která se rozsvítí na prostředním talčítku. V menu se pohybuje pomocí šipek a povrzuje se pomocí prostředního tlačítka. Pro opouštění menu stačí podržet obě šipky.<br>
+<strong>Zastavení jízd</strong><br>
+Robota stačí otočit směrem motorama pro nástavce nahoru, potom se robot automaticky zastaví<br></p>
+<h2 id="moznost-t-testovani-robota">Možnost <code>T</code> - Testování robota</h2>
+<p>Možnost slouží pro testování robota, jeho motorů, senzorů a gyroskopu. <br></p>
+<p><strong>Průběh testování</strong>
+Pokud jsou všchny testování povoleny v parameters.py tak testování jdou za sebou v tomto pořadí: <br>
+<strong>1.</strong> Testování motorů<br>
+<strong>2.</strong> Testování senzorů (zatím jenom barevných)<br>
+<strong>3.</strong> Testování gyroskopu<br></p>
+<h3 id="testovani-motoru">Testování motorů</h3>
+<p>Toto testování je jako první. Ukáže se animace na spodním řádku a potom co se dokončí, spustí se první motor, společně s tím se ukáže animace ryhlostí motoru (podle rychlosti se rozsvítí pixely ve sloupečku). Testování motorů je v pořadí (s jakým sloupečkem se zobrazuje, z leva do prava):<br>
+<strong>1.</strong> Pravý motor pro pohyb, sloupeček 1.<br>
+<strong>2.</strong> Pravý motor pro nástavce, sloupeček 2.<br>
+<strong>3.</strong> Levý  motor pro nástavce, sloupeček 3.<br>
+<strong>4.</strong> Levý sloupeček pro nástavce, soupeček 4.<br>
+Po otestování každého z motorů, robot vyžaduje potvrzení že se otočil správně.<br></p>
+<h3 id="testovani-senzoru">Testování senzorů</h3>
+<p>Testování senzorů je jako druhé po motorech. Je rozděleno na dvě části<br>
+<strong>1.</strong> Testování světel v senzoru<br>
+<strong>2.</strong> Testování čtení barev <br></p>
+<h4 id="testovani-svetel-v-barevncyh-senzorech">Testování světel v barevncýh senzorech</h4>
+<p>Jako první se na displeji objeví šipka ketrá ukazuje na právě testovaný senzor. V každém barevném senzoru se rozsvítí světlo. Světla se rozsvěcují pomalu, od jasu 0 až do 100 po 10.
+Po otestování horního senzoru začne šipka ukazovat "dolů" a to stejné se stane u spodního senzrou.<br></p>
+<h4 id="testovani-cteni-barev">Testování čtení barev</h4>
+<p>Po testování světel v barevých senzorech se testuje četná barev. Čtení barev se tesutje na Červené, Zelené a Modré v tomto pořadí. Vždy se rozsvítí ten senzor kam se má ukázat barava. První se testuje horní senzor a ptom spodní senzor. Prostřední talčítko se vždy rozsvítí barovu kterou senzor potřebuje vidět, pokud ji viděl tak pípne.<br></p>
+<h3 id="testovani-gyroskopu">Testování gyroskopu</h3>
+<p>Hned po testování senzrů se bude testovat gyroskop, robot počká než se nebude hýbat/bude na stole a vyresetuje gyrokop a připraví se. Po tom co se vyresetuje se otočí na 360 a zpět na 0. Potom co se otočí bude požadovat odshozhlsaení že otočení proběhlo v pořádku. To stjné, ale na druhou stranu, na -360 a zpět 0 a odsouhlasení. Po doknončení tohoto testu je testování robota dokoncčeno</p>
+<h2 id="moznost-i-automaticka-riprava-initalize">Možnost <code>I</code> - Automatická říprava (initalize)</h2>
+<p>Po výběru možnosti <code>I</code> robot bude požadovat položit na stůl a aby se s ním nehýbalo. Po tom co zaznamená že se nehýbe, spustí resetování gyroskopu, zapisování hodnoty pro intrrupt a zapínání (rzsvěcení) barevných senzorů.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="main/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.0
+Build Date UTC : 2024-09-19 18:39:20.879205+00:00
+-->

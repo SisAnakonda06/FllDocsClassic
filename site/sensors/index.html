@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>sensors.py - Submerged program</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "sensors.py";
+        var mkdocs_page_input_path = "sensors.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Návod a přehled</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../main/">main.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../menu/">menu.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../movement/">movement.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../parameters/">parameters.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rideSelect/">RideSelect.py</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../selfTest/">selfTest.py</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">sensors.py</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#seznam-funkci">Seznam funkcí</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#defineone">DefineOne()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getcolor">GetColor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getambient">GetAmbient()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getreflection">GetReflection()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#colorlighton">ColorLightOn</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checkbaterrypercentage">CheckBaterryPercentage()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pouzite-parametry">Použité parametry</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Submerged program</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">sensors.py</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
+        <a href="../selfTest/" class="btn btn-neutral float-left" title="selfTest.py"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
+    </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="sensorspy">sensors.py</h1>
+<p>Soubor který slouží pro ovládání a získávání informací ze senzorů. Zatím jsou podporavné pouze barevné senzory a baterie.</p>
+<h2 id="seznam-funkci">Seznam funkcí</h2>
+<h3 id="defineone">DefineOne()</h3>
+<p><code>DefineOne(port:str)</code><br>
+Funkce pro získávání a sjednoscení portů. Funkce na základě proměné port vybare a vrátí port.</p>
+<p><strong>Parametry</strong><br>
+- port - Jaky port se ma vybrat<br></p>
+<p><strong>Return</strong><br>
+Funkce zpět vrací zppět správný port.<br></p>
+<p><br>
+<br></p>
+<h3 id="getcolor">GetColor</h3>
+<p><code>GetColor(port:str, surface:bool)</code><br>
+Funkce pro získávání barvy z barevných senzorů.</p>
+<p><strong>Parametry</strong><br>
+- port - Z jakého senzoru se má číst barva<br>
+- surface - Na jakém povrchu se čte barva (jesti na povrchu jako displej nebo jako papír, deafult:True - jako papír)<br></p>
+<p><strong>Return</strong><br>
+Funkce vrací získanou barvu.<br></p>
+<p><br>
+<br></p>
+<h3 id="getambient">GetAmbient()</h3>
+<p><code>GetAmbient(port:str)</code><br>
+Funkce pro získávání okolního světla<br></p>
+<p><strong>Parametry</strong><br>
+- port - Jaky port se má použít<br></p>
+<p><strong>Return</strong><br>
+Funkce vvrací naměřenou hodnotu<br></p>
+<p><br>
+<br></p>
+<h3 id="getreflection">GetReflection()</h3>
+<p><code>GetRefelction(port:str)</code><br>
+Funkce pro získání odraženého světla<br></p>
+<p><strong>Parametry</strong><br>
+- port - Jaký port se má použít <br></p>
+<p><strong>Return</strong>
+Funkce vrací  naměřené hodnoty.<br></p>
+<p><br>
+<br></p>
+<h3 id="colorlighton">ColorLightOn</h3>
+<p><code>ColorLightOn(port:str, brightness:tuple)</code><br>
+Funkce pro rozsvícení světel na barevném senzoru<br></p>
+<p><strong>Parametry</strong><br>
+- port - Jaky senzor se má rozsvítit<br>
+- brightness - Jak moc se má jaké světlo v senzoru rozsvítit (deafult:[100, 100, 100])<br></p>
+<p><br>
+<br></p>
+<h3 id="checkbaterrypercentage">CheckBaterryPercentage()</h3>
+<p><code>CheckBaterryPercentage()</code><br>
+Funkce pro kontrolu a zěmření nabití baterie v procentech. Funkce kontorluje mV baterie a na základě dat z PyBricks fóra kontroluje procento nabití baterie. Na základě procent funkce rozsvítí prostřední talčítko,<br>zelené = nabito<br>oranžová = skoro vybyto (na této úrovni se už program nezapne)<br>červená = vybyto<br></p>
+<p><strong>Parametry</strong><br>
+Žádné<br></p>
+<p><strong>Return</strong><br>
+Funkce vrací zda může program pokračovat dál nebo už je baterie moc vybytá. (True - pokud může pokračovat, False - Pokud nemůže pokračovat)</p>
+<p><br>
+<br>
+<br></p>
+<h2 id="pouzite-parametry">Použité parametry</h2>
+<p>Použité paramtery jsou napsané ve formátu.<br>
+<code>NÁZEV_PROMĚNÉ_V_SOUBORU = parameters.NÁZEV_PROMĚNÉ_V_PARAMETERS</code><br></p>
+<p><br>
+Port pro hodní barevný senzor<br>
+<code>COLOR_UP_PORT = parameters.COLOR_SENSOR_UP_PORT</code><br></p>
+<p><br>
+Port pro spodní barevný senzor<br>
+<code>COLOR_DOWN_PORT = parameters.COLOR_SENSOR_DOWN_PORT</code><br></p>
+<p><br>
+mV plné baterie<br>
+BATERRY_FULL = parameters.BATERRY_FULL<br></p>
+<p><br>
+mv skoro nabité baterie baterie<br>
+<code>BATERRY_OK = parameters.BATERRY_OK</code><br></p>
+<p><br>
+mV skoro vybité baterue<br>
+<code>BATERRY_LOW = parameters.BATERRY_LOW</code><br></p>
+<p><br>
+mV vybité baterie<br>
+<code>BATERRY_CRITICAL = parameters.BATERRY_CRITICAL</code><br></p>
+<p><br>
+mV baterie od které se už program nespustí<br>
+<code>BATERRY_OFF = parameters.BATERRY_OFF</code><br></p>
+<p><br>
+Jestli se má zapnout omezení baterie (BATERRY_OFF)<br>
+<code>BATERRY_OFF_CONTROL = parameters.BATERRY_OFF_CONTROL</code><br>
+<br></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../selfTest/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
