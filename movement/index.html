@@ -74,6 +74,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#getxy">GetXY()</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#softturn">SoftTurn()</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#pouzite-parametry">Použité parametry</a>
@@ -190,7 +192,11 @@ Funkce jako první zkontroluje kterým motorem se má otáčet a potom spustí m
 <h3 id="interrupt">Interrupt()</h3>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Interrupt</span><span class="p">(</span><span class="n">gear</span><span class="p">)</span>
 </code></pre></div>
-Tato funkce slouží k zastavení pohybu při zvednutí robota. Jako první se spustí smyčka která běží dokud motor nedokončí svůj pohyb nebo robot se nezvedne. Pokud se smyčka ukončí tak se program přesune do menu pro výběr jízd. Tato funkce se spouští při jakémkoliv pohybu, pokud není vypnutý. Funke využívá možnosti <code>wait</code> při spouštění nebo obládání motorů, tak že běží smyčka ve funkci a čeká než se motor dohýbe, toto umožňuje využít čas který byl použit při čekání dokončení pohybu efektivněji, kontrolování natočení robota.</p>
+Tato funkce slouží k zastavení pohybu při zvednutí robota. Jako první se spustí smyčka která běží dokud motor nedokončí svůj pohyb nebo robot se nezvedne. Pokud se smyčka ukončí tak se program přesune do menu pro výběr jízd. Tato funkce se spouští při jakémkoliv pohybu, pokud není vypnutý. Funke využívá možnosti <code>wait</code> při spouštění nebo obládání motorů, tak že běží smyčka ve funkci a čeká než se motor dohýbe, toto umožňuje využít čas který byl použit při čekání dokončení pohybu efektivněji, kontrolování natočení robota.
+<br>
+<br>
+<strong>Parametry</strong><br>
+- gear - Co se má při zvednutí zastavit, proměná motoru ketrý se právě hýbe.</p>
 <p><br>
 <br></p>
 <h3 id="goto">GoTo()</h3>
@@ -199,25 +205,36 @@ Tato funkce slouží k zastavení pohybu při zvednutí robota. Jako první se s
 Funkce slouzi pro pohyb robota po sořadnicíh x a y. Funkce na zaklade zadanych souradnic x a y vypocita pomoci pytagorovy vety a cosinu 
 vzdalenost a uhle kam ma robot jet. Po vypocitani spusti pohyb s těmito hodnotami. Po dokonceni pohybu se zkontorluje aktualni pou
 zice pomci funkce GetXY a hodnoty ktere vraci se nastvai jako aktualni pozice.</p>
+<p><strong>Použité parametry</strong><br>
+- x - Souřadnice x<br>
+- y - Souřadnice y<br></p>
 <p><br>
 <br></p>
 <h3 id="getxy">GetXY()</h3>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">GetXY</span><span class="p">()</span>
 </code></pre></div>
 Tato funkce slouží pro získání aktulaní pozoce pomocí souřadnic X a Y na zaklade ujeté vzdálenosti a uhlu kam se robot kouká. Funkce jako první změří potřebné hodnoty a potom pomocí <code>X = dist*cos(rad(angle))</code> (dist je ujetá vzdálenost a angle je uhle na kzerý se kouká) vypočítá hodnotu X a pomocí <code>Y = dist*sin(rad(angle))</code> (dist je ujetá vzdálenost a angle je uhle na kzerý se kouká) vypočítá hodnotu Y. Vypočítané hodnot potom varcí jako list: <code>[X,Y]</code></p>
-<p><strong>Parametry</strong><br>
-- gear - Co se má při zvednutí zastavit, proměná motoru ketrý se právě hýbe.</p>
 <p><br>
+<br></p>
+<h3 id="softturn">SoftTurn()</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">SoftTurn</span><span class="p">(</span><span class="n">straightValue</span><span class="p">,</span> <span class="n">angleValue</span><span class="p">)</span>
+</code></pre></div>
+Funkce SoftTurn slouží pro lehčí plynulé spojení jízdy rovně a zatáčení. Do <code>straightValue</code> se zadává vzálensot jízdy rovně a do <code>angleValue</code> se zadavá úhel na který se má robot otočit. Funkce jako prnví spustí funkci pro jízud rovně se spěciálně nastavenými hodnotami po dokonceni pohybu, funkce rozhodne zda se má otoáčet pomocí lefého nebo pravého motoru. Následně spustí funkci pro zatáčení také se speciálně nastavenými parametry. 
 <br>
+<br></p>
+<p><strong>Použité parametry</strong><br>
+- straightValue - Jak daleko má jet (v cm)<br>
+- angleValue - Na jaký úhel má zatočit<br></p>
+<p><br>
 <br></p>
 <h2 id="pouzite-parametry">Použité parametry</h2>
 <p>Použité paramtery jsou napsané ve formátu.<br>
 <code>NÁZEV_PROMĚNÉ_V_SOUBORU = parameters.NÁZEV_PROMĚNÉ_V_PARAMETERS</code><br>
 <br></p>
 <p>Nastavení konstant PID pro jízdu vpřed
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">K_P_STRAIGHT_BASE</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_P_STRAIGHT_BASE</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">K_I_STRAIGHT_BASE</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_I_STRAIGHT_BASE</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">K_D_STRAIGHT_BASE</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_D_STRAIGHT_BASE</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">K_P_STRAIGHT_BASE</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_P_STRAIGHT_BASE</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">K_I_STRAIGHT_BASE</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_I_STRAIGHT_BASE</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">K_D_STRAIGHT_BASE</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_D_STRAIGHT_BASE</span>
 </code></pre></div>
 <br></p>
 <p>Integral deadzone pro PID regulátor<br>
@@ -227,9 +244,9 @@ Tato funkce slouží pro získání aktulaní pozoce pomocí souřadnic X a Y na
 <code>INTEGRAL_RATE_STRAIGHT_BASE = parameters.INTEGRAL_RATE_STRAIGHT_BASE</code><br>
 <br></p>
 <p>Konstanty pro vypnuté PID
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">K_P_STRAIGHT_BASE_OFF</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_P_STRAIGHT_BASE_OFF</span> 
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">K_I_STRAIGHT_BASE_OFF</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_I_STRAIGHT_BASE_OFF</span> 
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">K_D_STRAIGHT_BASE_OFF</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_D_STRAIGHT_BASE_OFF</span> 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">K_P_STRAIGHT_BASE_OFF</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_P_STRAIGHT_BASE_OFF</span> 
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">K_I_STRAIGHT_BASE_OFF</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_I_STRAIGHT_BASE_OFF</span> 
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">K_D_STRAIGHT_BASE_OFF</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">K_D_STRAIGHT_BASE_OFF</span> 
 </code></pre></div>
 <br></p>
 <p>Integral deadzone pro vypnuté PID<br>
@@ -254,18 +271,18 @@ Tato funkce slouží pro získání aktulaní pozoce pomocí souřadnic X a Y na
 <code>DEAFULT_USEING_GYRO = parameters.DEAFULT_USING_GYRO_BASE</code><br>
 <br></p>
 <p>Nastavení portů pro motory na pohyb<br>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">MOTOR_R_PORT</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_R_PORT</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">MOTOR_L_PORT</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_L_PORT</span> 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">MOTOR_R_PORT</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_R_PORT</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">MOTOR_L_PORT</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_L_PORT</span> 
 </code></pre></div>
 <br></p>
 <p>Nastavení portů pro motory na nástavce<br>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">MOTOR_ATT_R_PORT</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_ATT_R_PORT</span> 
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">MOTOR_ATT_L_PORT</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_ATT_L_PORT</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">MOTOR_ATT_R_PORT</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_ATT_R_PORT</span> 
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">MOTOR_ATT_L_PORT</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_ATT_L_PORT</span>
 </code></pre></div>
 <br></p>
 <p>Nastavení směru otáčení motorů pro jízdu<br>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">MOTOR_L_DIRECTION</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_L_DIRECTION</span> 
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">MOTOR_R_DIRECTION</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_R_DIRECTION</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">MOTOR_L_DIRECTION</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_L_DIRECTION</span> 
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">MOTOR_R_DIRECTION</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">MOTOR_R_DIRECTION</span>
 </code></pre></div>
 <br></p>
 <p>Nastavení axle tarck (vzdálensot mezi body kde se robot dotýká země)<br>
@@ -292,6 +309,11 @@ Tato funkce slouží pro získání aktulaní pozoce pomocí souřadnic X a Y na
 <p>Normální rychlost animací<br>
 <code>NORMAL_ANIMATIONS = parameters.NORMAL_ANIMATIONS</code><br>
 <br></p>
+<p>Akcelerace pro jízdu rovně v SoftTurn<br>
+<code>DEAFULT_ACC_SMOOTH_TURN = parameters.DEAFULT_ACC_SMOOTH_TURN</code><br>
+<br></p>
+<p>Rychlost zatáčení pro funki SoftTurn<br>
+<code>DEAFULT_SPEED_SMOOTH_TURN = parameters.DEAFULT_SPEED_SMOOTH_TURN</code><br></p>
               
             </div>
           </div><footer>
